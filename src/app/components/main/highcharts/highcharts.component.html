@@ -1,0 +1,250 @@
+<app-header></app-header>
+
+<div class=" p-25 ">
+    <div class=" container ms-4 row">
+        <div class="container ">
+            <div class="tab-head pt-5">
+
+                <button class="tab-link active" (click)="chartType()">Chart type</button>
+                <button class="tab-link" (click)="Statistics()">Statistics</button>
+
+            </div>
+        </div>
+        <div class="tab-body col " *ngIf="isChart">
+            <div class="ps-5  pt-3">
+                <h2><span></span></h2>
+                <select class="box" (change)="selectChangeHandler($event)">
+                    <option hidden>Select yAxis</option>
+                    <option *ngFor="let n of array ;let i=index">{{ n }} </option>
+                </select>
+
+                <h2><span></span></h2>
+                <select class="box" (change)="selectChangeHandler1($event)">
+                    <option hidden>Select xAxis</option>
+                    <option *ngFor="let n of array ;let i=index">{{ n }} </option>
+
+                </select>
+            </div>
+
+            <h1 class="mt-4 ms-2 mb-1">Chart type :</h1>
+            <div class="justify-content-center ps-5  pt-3 mb-4">
+                <button class="tab-link chart" (click)="Line()">Basic line</button>
+
+                <button class="tab-link chart" (click)="Area()">Basic Area</button>
+
+                <button class="tab-link chart" (click)="Bar()">Basic bar</button>
+
+                <button class="tab-link chart" (click)="Column()">Basic column</button>
+
+                <button class="tab-link chart" (click)="Pie()">Pie chart</button>
+
+                <button class="tab-link chart" (click)="DemiPie()">Demi Pie</button>
+
+                <button class="tab-link chart" (click)="Dount()">Dount chart</button>
+            </div>
+        </div>
+        <div class="tab-body  " *ngIf="isStat">
+
+            <h2><span></span></h2>
+            <div >
+                <select class="box " (change)="selectChangeHandler2($event)">
+                    <option hidden value="hide">Select a coulumn</option>
+                    <option *ngFor="let n of array ;let i=index">{{ n }} </option>
+
+                </select>
+            </div>
+            <div class="mt-3">
+                <table>
+                    <tr>
+                        <td>Mean :</td>
+                        <td><b>{{moy}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Median :</td>
+                        <td><b>{{med}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Maximum :</td>
+                        <td><b>{{max}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Minimum :</td>
+                        <td><b>{{min}}</b></td>
+                    </tr>
+                    <tr>
+                        <td> Variance :</td>
+                        <td><b>{{Var}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>   L'ecart type :</td>
+                        <td><b>{{Ecart}}</b></td>
+                    </tr>
+                    <tr>
+                        <td>   Mode :</td>
+                        <td><b>{{Mode}}</b></td>
+                    </tr>
+                </table>
+            </div>
+            
+
+            <div class="loading col" *ngIf="isStat">
+
+
+                <div class="tab-next" *ngIf="isStat">
+                   
+                    <div *ngIf="ShowSpinner">
+                        <!-- <mat-spinner></mat-spinner> -->
+                        <!-- <div class="loader">Loading...</div> -->
+                        <div class="loader"></div>
+                    </div>
+                    <div *ngIf="ShowSpinner==false">
+                        <div *ngIf="isDist">
+                            <mat-divider></mat-divider>
+                            <h2><span>Distribution</span></h2>
+    
+                            <highcharts-chart [Highcharts]="highcharts4" [options]="chartOptions4"></highcharts-chart>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div>
+            <!-- <div class="mt-1">
+                Median : <b>{{med}}</b>
+            </div>
+            <div>
+               Maximum : <b> {{max}}</b>
+            </div>
+            <div>
+                Minimum :  <b>{{min}}</b>
+            </div>
+            <div>
+                Variance : <b> {{Var}}</b>
+            </div>
+            <div>
+                L'ecart type : <b>{{Ecart}}</b> 
+            </div>
+            <div>
+               Mode : <b>{{Mode}}</b>
+            </div> -->
+        </div>
+
+
+
+        <div class=" col">
+
+            <div class="tab-next" *ngIf="isLine">
+                <div *ngIf="ShowSpinner1">
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+                    <app-try></app-try>
+                </div>
+            </div>
+
+            <div class="tab-next" *ngIf="isArea">
+
+                <div *ngIf="ShowSpinner1">
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+                    <app-try></app-try>
+                </div>
+            </div>
+
+            <div class="tab-next" *ngIf="isBar">
+
+                <div *ngIf="ShowSpinner1">
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+                    <app-try></app-try>
+                </div>
+            </div>
+            <div class="tab-next" *ngIf="isColumn">
+
+                <div *ngIf="ShowSpinner1">
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+                    <app-try></app-try>
+                </div>
+            </div>
+            <div class="tab-next" *ngIf="isPie">
+
+                <div *ngIf="ShowSpinner1">
+                    <!-- <mat-spinner></mat-spinner> -->
+                    <!-- <div class="loader">Loading...</div> -->
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+
+                    <highcharts-chart #piechart [Highcharts]="highcharts1" [options]="chartOptions1"></highcharts-chart>
+                    <button class="btn btn-light" (click)="PDF('PieChart')">Downoald
+                        <fa-icon [icon]="uploadicon"></fa-icon>
+                    </button>
+                </div>
+
+            </div>
+            <div class="tab-next" *ngIf="isDemiPie">
+
+                <div *ngIf="ShowSpinner1">
+                    <!-- <mat-spinner></mat-spinner> -->
+                    <!-- <div class="loader">Loading...</div> -->
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+
+                    <highcharts-chart #DemiChart [Highcharts]="highcharts2" [options]="chartOptions2">
+                    </highcharts-chart>
+                    <br>
+                    <button class="btn btn-light" (click)="PDF('DemiPie')">Downoald
+                        <fa-icon [icon]="uploadicon"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="tab-next" *ngIf="isDount">
+
+                <div *ngIf="ShowSpinner1">
+                    <!-- <mat-spinner></mat-spinner> -->
+                    <!-- <div class="loader">Loading...</div> -->
+                    <div class="loader1"></div>
+                </div>
+                <div *ngIf="ShowSpinner1==false">
+                  
+                    <highcharts-chart #DountChart [Highcharts]="highcharts3" [options]="chartOptions3">
+                    </highcharts-chart>
+                    <br>
+                    <button class="btn btn-light" (click)="PDF('DountChart')">Downoald
+                        <fa-icon [icon]="uploadicon"></fa-icon>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="loading col" *ngIf="isStat">
+
+
+            <div class="tab-next" *ngIf="isStat">
+                <h2><span>Distribution</span></h2>
+                <div *ngIf="ShowSpinner">
+                    
+                    <div class="loader"></div>
+                </div>
+                <div *ngIf="ShowSpinner==false">
+                    <div *ngIf="isDist">
+
+
+                        <highcharts-chart [Highcharts]="highcharts4" [options]="chartOptions4"></highcharts-chart>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> -->
+    </div>
+    <!-- <a class="btn btn-light" (click)="click()">
+        Pdf
+    </a> -->
+
+</div>

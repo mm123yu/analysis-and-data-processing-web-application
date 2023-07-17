@@ -1,0 +1,54 @@
+<body>
+
+
+    <app-header></app-header>
+    <section class="registation-block">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div class="container">
+                        <h1 class="heading-block pt-5 mb-2">Welcome to DataViz. </h1>
+                        <mat-divider></mat-divider>
+                        <div class="d-flex justify-content-center">
+                            <form #f="ngForm" (ngSubmit)="login(f)">
+                                <legend class="uk-legend">Login :</legend>
+                                <div class="uk-margin">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                        <input class="uk-input" type="text" name="email" placeholder="email" ngModel
+                                            #email="ngModel" required>
+                                    </div>
+                                </div>
+
+                                <div class="uk-margin">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                        <input class="uk-input" type="password" name="password" placeholder="password"
+                                            ngModel #password="ngModel">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center"><button type="submit" class="button "
+                                        [disabled]="f.invalid ">Login</button></div>
+
+                                <!-- <div *ngIf="messageError" class="alert alert-danger"> {{messageError}} </div> -->
+                                <div *ngIf="messageError" class="uk-alert-danger" uk-alert>
+                                    <a class="uk-alert-close" uk-close></a>
+                                    <p>{{messageError}} </p>
+                                </div>
+                                <div class="redirectToLogin mt-3">
+                                    <span>Don’t have an account yet?<br> <span class="redirect "
+                                            routerLink="/registration"> Sign up </span></span>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <app-footer></app-footer>
+</body>

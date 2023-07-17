@@ -1,0 +1,70 @@
+<body>
+<header class="header">
+    <!-- Navbar-->
+    <app-header [ngClass]="'fixed-top'"></app-header>
+
+    <!-- La video avec son contenu-->
+    <div class="all">
+
+      <div>
+
+        <div class="overlay"></div>
+
+        <!-- The HTML5 video element that will create the background video on the header -->
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="assets/flourish_showreel_v2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+
+      <!-- The header content -->
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white txt-vid">
+            <h1 class="h display-3">Simple and sublime<br><b>data<br>visualization</b></h1>
+            <div class="register">
+              <a routerLink="/main" class="btn">Start </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="my-5">
+    <div class="container">
+        <!-- <div class="col-md-8 mx-auto"> -->
+         
+         <div class="col-xs-12  text-center"> <h3 class="title"> WHAT IS ONLINE DATA VISUALIZATION? </h3></div>
+         <div class="col-md-11 col-xs-12 text ">
+          <p>Online data visualization is a termed used to describe the graphical representation of datasets through interactive graphs, charts, dashboards and reports in order to communicate actionable business insights appealingly visualized in an effective online environment. Thanks to professional online data visualization tools, companies from all industries can quickly and efficiently visualize their most relevant information in a universal manner, facilitating collaboration and business growth.</p>
+          <p>Studies say that the human brain processes visual data 60,000 times faster than text or numbers. Taking this fact into consideration, it is impossible to ignore the benefits an interactive visualization can bring to your business. To put this into perspective, here we present you a list of benefits your business could extract from investing in modern online data visualization software:</p>
+          <p>       
+            The key benefits of data visualization include faster and better decision-making. A graphical representation of complicated data enables analysts to diagnose problems with their business strategy and improve their approach. This process is facilitated with the use of charts, dashboards, and infographics.
+
+            By highlighting particular aspects of the data, these visual aids make it easier to comprehend and absorb the most crucial bits of information. In many ways, they allow the data to tell its own story and pinpoint specific sections for further analysis and discussion.
+                  </p>
+          <p>The possibility to extract, manipulate, and analyze data online from any device with an Internet connection, and to create powerful visualization without profound IT or technical knowledge, makes online data visualization a backbone for modern, agile business management. Without it, companies are at risk of becoming blind in the modern data world, where each information is becoming priceless. Besides, these tools can automate many processes that organizations these days still do manually, and welcome you to the 21st century.</p>
+          
+          </div>
+         
+          <!-- <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own
+            background! The header text is vertically centered using flex utilities that are built into Bootstrap.</p>
+          <p>The overlay color and opacity can be changed by modifying the <code>background-color</code> and
+            <code>opacity</code> properties of the <code>.overlay</code> class in the CSS.
+          </p>
+          <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+            media query at the bottom of the CSS snippet.</p>
+          <p class="mb-0">
+            Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+          </p> -->
+        </div>
+      <!-- </div> -->
+    
+  </section>
+
+
+
+<app-footer></app-footer>
+</body>

@@ -1,0 +1,15 @@
+
+    <form #f="ngForm">
+      <p>
+        <label id="qst">Your file contains headers ?</label> 
+      </p>
+      <mat-radio-group labelPosition="before"  >
+        <mat-radio-button color="primary" name="yes"  [(ngModel)]="selected" ngDefaultControl value="Yes" class=" ms-3 me-3">Yes</mat-radio-button>
+        <mat-radio-button color="primary" name="no"  [(ngModel)]="selected" ngDefaultControl value="No">No</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <button type="submit" class="btn btn-primary mt-4 p-1 text-right" (click)= "submit()"  matDialogClose >OK</button>
+      
+    </form>
+    
+    

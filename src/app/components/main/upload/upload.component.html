@@ -1,0 +1,56 @@
+<div class="app-section ">
+    <div class="section container-fluid ">
+        <div>
+            <div class="row ">
+                <div class="col">
+                    <div class="d-flex align-items-center my-1 ">
+                        <h1> Upload your data : </h1>
+                    </div>
+                    <div class="row">
+
+                        <div>
+                            <ul>
+                                <li>Directly upload CSV files saved on your PC.</li>
+                                <li>Before uploading the files, please make sure that they have the proper CSV format.</li>
+                            </ul>
+                        </div>
+                        <div class="tab">
+                            <div class="row project justify-content-center" appDropzone
+                                (fileDropped)="onFileDropped($event)  ">
+                                <input type="file" #fileDropRef name="" id="fileDropRef"
+                                    (change)="fileBrowseHandler($event)" accept=".csv" />
+                                <fa-icon [icon]="uploadicon" class="w-25" size="5x"></fa-icon>
+                                <h3> Drag your file here </h3>
+                                <h3>or</h3>
+                                <label for="fileDropRef">Browse</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="files-list">
+                <div class="single-file" *ngFor="let file of files; let i = index">
+                    <fa-icon [icon]="fileicon" size="2x"></fa-icon>
+                    <div class="info ms-3">
+                        <h4 class="name">
+                            {{ file?.name }}
+                        </h4>
+                        <p class="size">
+                            {{ formatBytes(file?.size) }}
+                        </p> 
+                        <!-- <app-progress [progress]="file?.progress"></app-progress> -->
+                     </div>
+                    <fa-icon [icon]="deleteicon" (click)="deleteFile(i)" size="2x"></fa-icon>
+                </div>
+            </div>
+            <div class="container">
+                <a class="btn btn-light" (click)="openDialog()">
+                    Proceed
+                    <fa-icon [icon]="righticon"></fa-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <app-footer></app-footer>
+    

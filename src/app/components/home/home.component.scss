@@ -1,0 +1,98 @@
+
+body {
+    min-height: 110vh;
+    background-color: #4ca1af;
+    // height: 100%;
+    // background-repeat: no-repeat;
+    background-image: linear-gradient(200deg, #4ca1af 0%, #c4e0e5 60%);
+  }
+header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  header .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .all{
+      height: 100vh;
+  }
+  
+  .txt-vid{
+      margin-top: calc(50vh - 80px);
+      transform: translateY(-50%);
+      // margin-top: 50vh;
+      
+  }
+  
+  h1{
+    color: whitesmoke;
+    font-size: 50px;
+    line-height: normal;
+    // font: 400  Roboto, "Helvetica Neue", sans-serif;
+    // line-height:100px
+  }
+  
+  h1 b {
+      font-weight: 600;
+  }
+   
+  
+  .register{
+      font-size: 50px;
+      text-align: center;
+      padding-top:1rem;
+  }
+   .register .btn{
+      color: black;
+      padding: 0.2em 1em;
+      background: white;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 70%);
+      // height: 2.6em;
+      // line-height: 2.6em;
+      font-size: 1.5rem;
+      font-weight: 700;
+   }
+  
+   a:link, a:visited {
+      text-decoration: none;
+  }
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:1000px;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+ .title{
+  font: 24px/1.2 'Source Sans Pro',Calibri,sans-serif;
+    display: block;
+    margin-bottom: 25px;
+ }
+ .text {
+  font: 400 18px/1.35 'Source Sans Pro',Calibri,sans-serif;
+ }
